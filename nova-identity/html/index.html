@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Nova Identity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <div class="panel">
+        <h1>NOVA IDENTITY</h1>
+        <div id="characters"></div>
+
+        <form id="create">
+            <input id="firstname" placeholder="First name" maxlength="30" required>
+            <input id="lastname" placeholder="Last name" maxlength="30" required>
+            <input id="dob" placeholder="Date of birth" maxlength="10" required>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <input id="height" type="number" min="120" max="230" value="180" placeholder="Height">
+            <button>Create Character</button>
+        </form>
+
+        <p id="error"></p>
+        <button id="close">Close</button>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

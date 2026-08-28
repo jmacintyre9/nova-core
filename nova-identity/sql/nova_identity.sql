@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS `nova_characters` (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `identifier` VARCHAR(150) NOT NULL,
+    `firstname` VARCHAR(30) NOT NULL,
+    `lastname` VARCHAR(30) NOT NULL,
+    `dateofbirth` VARCHAR(10) NOT NULL,
+    `gender` VARCHAR(10) NOT NULL DEFAULT 'male',
+    `height` SMALLINT UNSIGNED NOT NULL DEFAULT 180,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    PRIMARY KEY (`id`),
+    KEY `idx_identifier` (`identifier`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
