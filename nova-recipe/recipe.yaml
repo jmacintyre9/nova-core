@@ -1,0 +1,149 @@
+# Nova RP - FiveM Recipe Template
+# Import this recipe into txAdmin's recipe system.
+# Replace the example GitHub URLs below with your own repositories.
+
+name: Nova RP Server
+version: 1.0.0
+author: Nova Development
+description: Custom recipe-based FiveM server template
+
+variables:
+  serverName:
+    type: string
+    description: Server name
+    default: Nova RP
+  maxClients:
+    type: number
+    description: Maximum players
+    default: 48
+  locale:
+    type: string
+    description: Default locale
+    default: en
+
+tasks:
+  - action: download_github
+    src: yourgithub/nova-core
+    ref: main
+    dest: resources/[nova]/nova-core
+
+  - action: download_github
+    src: github/jmacintyre9
+    ref: main
+    dest: resources/[nova]/nova-identity
+
+  - action: download_github
+    src: github/jmacintyre9
+    ref: main
+    dest: resources/[nova]/nova-spawn
+
+  - action: download_github
+    src: github/jmacintyre9
+    ref: main
+    dest: resources/[nova]/nova-hud
+
+  - action: download_github
+    src: github/jmacintyre9
+    ref: main
+    dest: resources/[nova]/nova-notify
+
+  - action: download_github
+    src: github/jmacintyre9
+    ref: main
+    dest: resources/[nova]/nova-admin
+
+  - action: write_file
+    file: server.cfg
+    data: |
+      # ==========================================
+      # NOVA RP - GENERATED SERVER CONFIG
+      # ==========================================
+
+      endpoint_add_tcp "0.0.0.0:30120"
+      endpoint_add_udp "0.0.0.0:30120"
+
+      sv_hostname "${serverName}"
+      sv_maxclients ${maxClients}
+
+      sets sv_projectName "${serverName}"
+      sets sv_projectDesc "Custom Nova RP FiveM Server"
+
+      # Database
+      set mysql_connection_string "mysql://USERNAME:PASSWORD@127.0.0.1/nova?charset=utf8mb4"
+
+      # Voice
+      setr voice_useNativeAudio true
+      setr voice_useSendingRangeOnly true
+
+      # Nova resources
+      ensure nova-core
+      ensure nova-identity
+      ensure nova-spawn
+      ensure nova-notify
+      ensure nova-hud
+      ensure nova-admin
+
+      # Default FiveM resources
+      ensure mapmanager
+      ensure chat
+      ensure spawnmanager
+      ensure sessionmanager
+      ensure hardcap
+      ensure rconlog
+
+      # Locale
+      set nova_locale "${locale}"
+
+      # Permissions
+      exec permissions.cfg
+
+      # Security
+      sv_scriptHookAllowed 0
+      sv_endpointPrivacy true
+      sv_enforceGameBuild 3258
+
+  - action: write_file
+    file: permissions.cfg
+    data: |
+      # Nova RP permissions
+
+      add_ace group.admin nova.admin allow
+      add_ace group.admin nova.moderator allow
+
+      # Add your identifiers here:
+      # add_principal identifier.license:YOUR_LICENSE group.admin
+
+  - action: write_file
+    file: README.md
+    data: |
+      # Nova RP Recipe
+
+      This server was generated from the Nova RP recipe.
+
+      ## Before starting
+
+      1. Replace the GitHub repository placeholders in recipe.yaml.
+      2. Set your MySQL username/password in server.cfg.
+      3. Import sql/nova.sql into your MySQL database.
+      4. Add your FiveM license key.
+      5. Add your admin license to permissions.cfg.
+      6. Start the server.
+
+      ## Resource order
+
+      Nova Core should start before Nova modules.
+
+      ## Planned modules
+
+      - Identity / character creation
+      - Spawn selector
+      - HUD
+      - Notifications
+      - Admin
+      - Inventory
+      - Banking
+      - Jobs
+      - Garages
+      - Vehicles
+      - Housing
+      - Businesses
