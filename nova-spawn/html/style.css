@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background: transparent;
+}
+
+#app {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 8, 12, .72);
+}
+
+.panel {
+    width: 760px;
+    max-height: 80vh;
+    overflow: auto;
+    padding: 30px;
+    border-radius: 16px;
+    background: #11151c;
+    box-shadow: 0 20px 80px rgba(0,0,0,.55);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+    opacity: .65;
+}
+
+h1 {
+    margin: 6px 0;
+    font-size: 32px;
+}
+
+p {
+    margin-top: 0;
+    opacity: .65;
+}
+
+#close {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 8px;
+    background: #242b36;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.spawns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.spawn {
+    padding: 20px;
+    border: 1px solid #2c3440;
+    border-radius: 12px;
+    background: #1a2029;
+}
+
+.spawn h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.spawn p {
+    min-height: 36px;
+}
+
+.spawn button {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
