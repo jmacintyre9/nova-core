@@ -1,0 +1,121 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background: transparent;
+}
+
+#app {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.65);
+}
+
+.panel {
+    width: 760px;
+    max-height: 82vh;
+    overflow: hidden;
+    padding: 26px;
+    border-radius: 14px;
+    background: #11151c;
+    box-shadow: 0 20px 80px rgba(0,0,0,.55);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+header span {
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: .55;
+}
+
+h1 {
+    margin: 5px 0 20px;
+}
+
+header button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 8px;
+    background: #242b36;
+    color: white;
+    font-size: 24px;
+}
+
+.toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+}
+
+.toolbar button, .actions button {
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#players {
+    max-height: 58vh;
+    overflow: auto;
+}
+
+.player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px;
+    margin: 7px 0;
+    border-radius: 9px;
+    background: #1a2029;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.meta {
+    font-size: 12px;
+    opacity: .55;
+    margin-top: 4px;
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.actions button {
+    font-size: 11px;
+}
+
+#announce {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    background: rgba(10,12,16,.95);
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    font-weight: bold;
+}

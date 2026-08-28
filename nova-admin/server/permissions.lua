@@ -1,0 +1,11 @@
+-- Nova Admin uses FiveM ACE permissions.
+--
+-- Add this to permissions.cfg:
+--
+-- add_ace group.admin nova.admin allow
+-- add_principal identifier.license:YOUR_LICENSE group.admin
+--
+-- You can also use identifiers such as:
+-- identifier.discord:123456789012345678
+--
+-- Never place a real license/identifier in this resource.
